@@ -119,26 +119,31 @@ section { padding:70px 20px; }
 <script>
 document.getElementById('leadForm').addEventListener('submit', function(e){
     e.preventDefault();
-    var nombre = this.nombre.value;
-    var email = this.email.value;
-    var telefono = this.telefono.value;
+    
+    var nombre = this.nombre.value.trim();
+    var email = this.email.value.trim();
+    var telefono = this.telefono.value.trim();
 
-    // Envia direto para Google Sheet
-    fetch("https://script.google.com/macros/s/AKfycbwnYCp_DRkXi7GiwBtvR4LBM5aCdcivJtgGaCjDA-U9dIhgE3LyFXv4jzQY_cVvImXL/exec", {
+    if(!nombre || !email || !telefono){
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    // envia para Google Apps Script
+    fetch("https://script.google.com/macros/s/AKfycbzTuCoHGVUTcBhjqkwkHkTII4B99KbBYb9Y1DQpt5wYHd72yRMHoRqufptxJD_4w1EeQg/exec", {
       method: "POST",
+      mode: "no-cors",  // permite enviar sem bloqueio CORS
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
       body: "nombre=" + encodeURIComponent(nombre) + 
             "&email=" + encodeURIComponent(email) +
             "&telefono=" + encodeURIComponent(telefono)
-    }).then(function(){
-        // Abre WhatsApp
+    }).finally(function(){
+        // abre WhatsApp sempre
         var whatsappLink = "https://wa.me/351914910437?text=Hola%20TRIB3,%20mi%20nombre%20es%20" + encodeURIComponent(nombre) + 
                            "%20y%20mi%20email%20es%20" + encodeURIComponent(email) +
                            "%20Tel:%20" + encodeURIComponent(telefono);
         window.open(whatsappLink, '_blank');
         document.getElementById('leadForm').reset();
-    }).catch(function(err){
-        alert("Erro ao enviar lead. Tenta novamente.");
     });
 });
 </script>
