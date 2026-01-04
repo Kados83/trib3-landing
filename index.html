@@ -130,7 +130,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
     }
 
     // envia para Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycby1HaN0Vs6vGdgUo2CU0jViZewVytLhKx8Mtip3oi8gLsGosNRQoB3FYsu3SU9FpBcLYA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwnlNq2G3vSmmrjG02c4zVeJR0h6NSEYYH8KUx2b2Z4NHB39xNBkuIeEJMNTajGBgJJEg/exec", {
       method: "POST",
       mode: "no-cors",  // permite enviar sem bloqueio CORS
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
@@ -139,9 +139,12 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
             "&telefono=" + encodeURIComponent(telefono)
     }).finally(function(){
         // abre WhatsApp sempre
-        var whatsappLink = "https://wa.me/351914910437?text=Hola%20TRIB3,%20mi%20nombre%20es%20" + encodeURIComponent(nombre) + 
-                           "%20y%20mi%20email%20es%20" + encodeURIComponent(email) +
-                           "%20Tel:%20" + encodeURIComponent(telefono);
+        var whatsappLink = "https://wa.me/351914910437?text=" + encodeURIComponent(
+    "Hola TRIB3 LESCORTS, mi nombre es " + nombre +
+    ", mi email es " + email +
+    " y teléfono es " + telefono +
+    ". Estoy buscando más información. Gracias!"
+);
         window.open(whatsappLink, '_blank');
         document.getElementById('leadForm').reset();
     });
