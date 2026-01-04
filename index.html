@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Montserrat',sans-serif; }
+html, body { overflow-x:hidden; }
+body { background-color:#000; color:#fff; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)), url('https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto/zhs91hu6wujla3ceo1s3.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align:center;
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.hero-content { max-width:750px; }
+.hero h1 { font-size:44px; font-weight:800; margin:10px 0; max-width:100%; word-wrap:break-word; line-height:1.2; overflow-wrap:break-word; }
+.hero h1 span { display:block; color:#e10600; }
+.hero p { font-size:18px; margin-top:15px; max-width:100%; width:100%; word-wrap:break-word; margin:auto; }
+
+/* CTA */
+.cta { margin-top:35px; }
+.cta a { background:#e10600; padding:18px 55px; color:#fff; font-weight:800; text-decoration:none; border-radius:50px; font-size:18px; display:inline-block; max-width:100%; box-sizing:border-box; }
+
+/* SECTIONS */
+section { padding:70px 20px; }
+.section-title { text-align:center; font-size:32px; font-weight:800; margin-bottom:30px; }
+.features { display:flex; gap:25px; flex-wrap:wrap; justify-content:center; }
+.feature { background:#111; border-radius:14px; overflow:hidden; width:320px; text-align:center; }
+.feature img { width:100%; height:210px; object-fit:cover; }
+.feature-content { padding:25px; }
+.feature-content strong { display:block; font-size:20px; color:#e10600; margin-bottom:10px; }
+
+/* OFERTA */
+.offer { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://trib3.co.uk/wp-content/uploads/2023/01/TRIB3_ROZ_-_Studio_Black-500x500.jpg'); background-size:cover; background-position:center; text-align:center; }
+.offer h2 span { color:#e10600; }
+
+/* FORMULÁRIO */
+.form-box { background:#111; padding:40px; border-radius:16px; max-width:520px; margin:auto; }
+.form-box input { width:100%; padding:16px; margin-bottom:15px; border-radius:8px; border:none; font-size:16px; }
+.form-box button { width:100%; padding:16px; font-size:18px; font-weight:800; background:#e10600; color:#fff; border:none; border-radius:50px; cursor:pointer; }
+
+/* WHATSAPP */
+.whatsapp { text-align:center; margin-top:18px; }
+.whatsapp a { color:#25D366; font-weight:600; text-decoration:none; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero { min-height:60vh; padding:15px; }
+  .hero h1 { font-size:28px; }
+  .hero p { font-size:16px; }
+  .cta a { padding:14px 30px; font-size:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>TRIB3 LESCORTS</h1>
+    <h1><span>2 ENTRENAMIENTOS GRATIS</span></h1>
+    <p>Entrenamientos HIIT de 45 minutos con luz, música y energía. Vive la experiencia TRIB3 en Les Corts.</p>
+    <div class="cta"><a href="#form">QUIERO MIS 2 TREINOS GRATIS</a></div>
+  </div>
+</div>
+
+<!-- BENEFICIOS -->
+<section>
+  <div class="section-title">Mucho más que un gimnasio</div>
+  <div class="features">
+    <div class="feature">
+      <img src="https://trib3.co.uk/wp-content/uploads/2023/07/Image44-2-768x1024.jpeg">
+      <div class="feature-content"><strong>Aulas llenas de energía</strong>Entrena en grupo, con motivación real y coaches que te empujan a dar más.</div>
+    </div>
+    <div class="feature">
+      <img src="https://trib3.co.uk/wp-content/uploads/2022/09/TRIB3-Website-Promo-Workout-BurnCal-1-500x500.jpg">
+      <div class="feature-content"><strong>Entrenamiento HIIT</strong>45 minutos intensos, divididos en 3 zonas para resultados reales.</div>
+    </div>
+    <div class="feature">
+      <img src="https://trib3.co.uk/wp-content/uploads/2023/01/TRIB3-Studio-Gallery-Img-NL-Rozengracht-05-1.jpg">
+      <div class="feature-content"><strong>Estudio premium</strong>Iluminación, sonido y equipamiento de última generación.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="offer">
+  <div class="section-title">Este mes <span>2 entrenamientos GRATIS</span></div>
+  <p>Sin compromiso · Sin pagos · Solo ven a probar</p>
+  <div class="cta"><a href="#form">RESERVAR AHORA</a></div>
+</section>
+
+<!-- FORM -->
+<section id="form">
+  <div class="section-title">Reserva tu plaza</div>
+  <div class="form-box">
+    <form id="leadForm">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <button type="submit">QUIERO MIS 2 TREINOS GRATIS</button>
+    </form>
+    <div class="whatsapp">
+      ¿Prefieres contacto inmediato?<br>
+      <a href="https://wa.me/34TEUNUMERO" target="_blank">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nombre = this.nombre.value;
+    var email = this.email.value;
+    var telefono = this.telefono.value;
+
+    // Envia direto para Google Sheet
+    fetch("https://script.google.com/macros/s/AKfycbwnYCp_DRkXi7GiwBtvR4LBM5aCdcivJtgGaCjDA-U9dIhgE3LyFXv4jzQY_cVvImXL/exec", {
+      method: "POST",
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: "nombre=" + encodeURIComponent(nombre) + 
+            "&email=" + encodeURIComponent(email) +
+            "&telefono=" + encodeURIComponent(telefono)
+    }).then(function(){
+        // Abre WhatsApp
+        var whatsappLink = "https://wa.me/351914910437?text=Hola%20TRIB3,%20mi%20nombre%20es%20" + encodeURIComponent(nombre) + 
+                           "%20y%20mi%20email%20es%20" + encodeURIComponent(email) +
+                           "%20Tel:%20" + encodeURIComponent(telefono);
+        window.open(whatsappLink, '_blank');
+        document.getElementById('leadForm').reset();
+    }).catch(function(err){
+        alert("Erro ao enviar lead. Tenta novamente.");
+    });
+});
+</script>
+
+</body>
+</html>
