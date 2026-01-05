@@ -104,19 +104,20 @@ section { padding:70px 20px; }
   <div class="section-title">Reserva tu plaza</div>
   <div class="form-box">
     <form id="leadForm">
-      <input type="text" name="nombre" placeholder="Nombre" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <input type="text" name="nombre" placeholder="Nombre">
+      <input type="email" name="email" placeholder="Email">
+      <input type="tel" name="telefono" placeholder="Teléfono">
       <button type="submit">QUIERO MIS 2 TREINOS GRATIS</button>
     </form>
     <div class="whatsapp">
       ¿Prefieres contacto inmediato?<br>
-      <a href="https://wa.me/34TEUNUMERO" target="_blank">Hablar por WhatsApp</a>
+      <a href="#" id="whatsappLink">Hablar por WhatsApp</a>
     </div>
   </div>
 </section>
 
 <script>
+// FORMULÁRIO: apenas envia para Google Sheet, sem abrir WhatsApp
 document.getElementById('leadForm').addEventListener('submit', function(e){
     e.preventDefault();
     
@@ -124,30 +125,41 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
     var email = this.email.value.trim();
     var telefono = this.telefono.value.trim();
 
-    if(!nombre || !email || !telefono){
-        alert("Por favor, completa todos los campos.");
-        return;
-    }
-
     // envia para Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbwnlNq2G3vSmmrjG02c4zVeJR0h6NSEYYH8KUx2b2Z4NHB39xNBkuIeEJMNTajGBgJJEg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbza2nvwRTRlmVj81yPMHH8qsy94VN-EjQ5lypMGPxcCXt17EK25kFaXdaJRVhgRMy5_/exec", {
       method: "POST",
-      mode: "no-cors",  // permite enviar sem bloqueio CORS
+      mode: "no-cors",
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
       body: "nombre=" + encodeURIComponent(nombre) + 
             "&email=" + encodeURIComponent(email) +
             "&telefono=" + encodeURIComponent(telefono)
-    }).finally(function(){
-        // abre WhatsApp sempre
-        var whatsappLink = "https://wa.me/351914910437?text=" + encodeURIComponent(
-    "Hola TRIB3 LESCORTS, mi nombre es " + nombre +
-    ", mi email es " + email +
-    " y teléfono es " + telefono +
-    ". Estoy buscando más información. Gracias!"
-);
-        window.open(whatsappLink, '_blank');
-        document.getElementById('leadForm').reset();
     });
+
+    // limpa o formulário
+    document.getElementById('leadForm').reset();
+});
+
+// WHATSAPP: envia mensagem com dados se preenchidos, ou genérica se não
+document.getElementById('whatsappLink').addEventListener('click', function(e){
+    e.preventDefault();
+
+    var nombre = document.querySelector('input[name="nombre"]').value.trim();
+    var email = document.querySelector('input[name="email"]').value.trim();
+    var telefono = document.querySelector('input[name="telefono"]').value.trim();
+
+    var mensaje = "";
+
+    if(nombre || email || telefono){
+        mensaje = "Hola TRIB3 LESCORTS, mi nombre es " + (nombre || "N/A") +
+                  ", mi email es " + (email || "N/A") +
+                  " y mi teléfono es " + (telefono || "N/A") +
+                  ". Estoy buscando más información. Gracias!";
+    } else {
+        mensaje = "Hola TRIB3 LESCORTS, estoy interesado en recibir más información sobre los entrenamientos. ¡Gracias!";
+    }
+
+    var whatsappLink = "https://wa.me/351914910437?text=" + encodeURIComponent(mensaje);
+    window.open(whatsappLink, '_blank');
 });
 </script>
 
