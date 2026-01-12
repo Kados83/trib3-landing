@@ -75,6 +75,33 @@ section { padding:70px 20px; }
   margin-bottom:10px;
 }
 
+/* TESTIMONIALS */
+.testimonials {
+  background:#0b0b0b;
+}
+.testimonial-grid {
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.testimonial {
+  background:#111;
+  border-radius:14px;
+  padding:30px;
+  max-width:320px;
+  text-align:center;
+}
+.testimonial p {
+  font-style:italic;
+  margin-bottom:15px;
+  font-size:16px;
+}
+.testimonial strong {
+  color:#e10600;
+  font-weight:600;
+}
+
 /* OFFER */
 .offer {
   background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
@@ -153,7 +180,7 @@ section { padding:70px 20px; }
   </div>
 </div>
 
-<!-- RECORDATORIO EXPERIENCIA -->
+<!-- EXPERIENCIA -->
 <section>
   <div class="section-title">La experiencia que ya conoces</div>
   <div class="features">
@@ -168,7 +195,7 @@ section { padding:70px 20px; }
       <img src="https://trib3.co.uk/wp-content/uploads/2022/09/TRIB3-Website-Promo-Workout-BurnCal-1-500x500.jpg">
       <div class="feature-content">
         <strong>El entrenamiento</strong>
-        45 minutos que no se olvidan. Intensos. Reales.
+        45 minutos intensos que no se olvidan.
       </div>
     </div>
     <div class="feature">
@@ -178,6 +205,29 @@ section { padding:70px 20px; }
         Luz, sonido y ambiente que te atraparon desde el primer día.
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+  <div class="section-title">Ellos ya volvieron</div>
+  <div class="testimonial-grid">
+
+    <div class="testimonial">
+      <p>“Después de un tiempo fuera, volver a TRIB3 me recordó por qué me enganché desde el primer día.”</p>
+      <strong>Laura · Socia</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>“Probé otros gimnasios, pero ninguno se siente como TRIB3. Volver fue la mejor decisión.”</p>
+      <strong>Carlos · Socio</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>“Pensé que no volvería… hasta que entrené otra vez. La energía es única.”</p>
+      <strong>Marta · Socia</strong>
+    </div>
+
   </div>
 </section>
 
@@ -204,10 +254,6 @@ section { padding:70px 20px; }
 <!-- FORM -->
 <section id="form">
   <div class="section-title">Es ahora</div>
-  <p style="text-align:center;max-width:600px;margin:0 auto 30px;">
-    Después de este tiempo, el precio vuelve a ser el habitual.<br>
-    Si lo sentiste una vez, sabes que vale la pena volver.
-  </p>
 
   <div class="form-box">
     <form id="leadForm">
@@ -229,62 +275,44 @@ section { padding:70px 20px; }
 </section>
 
 <script>
-// FORMULARIO
+// FORM
 document.getElementById('leadForm').addEventListener('submit', function(e){
   e.preventDefault();
 
-  const nombre = this.nombre.value.trim();
-  const email = this.email.value.trim();
-  const telefono = this.telefono.value.trim();
-  const tipo = "ex-lead-reactivacion";
   const msg = document.getElementById('formMessage');
 
   fetch("https://script.google.com/macros/s/AKfycby2Z73g8_e4k4Gsqt_PzxTrFcID-eNIbg6lD-DaYmDKtnQhGQlKNkSXbs69NlryRVrM/exec", {
     method:"POST",
     mode:"no-cors",
     headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}&telefono=${encodeURIComponent(telefono)}&tipo=${encodeURIComponent(tipo)}`
+    body:`nombre=${this.nombre.value}&email=${this.email.value}&telefono=${this.telefono.value}&tipo=ex-lead-reactivacion`
   })
   .then(() => {
     msg.style.color = "#00FF7F";
-    msg.innerText = "Perfecto. Te contactaremos para activar tu descuento.";
+    msg.innerText = "Perfecto. Te contactaremos muy pronto.";
     this.reset();
-  })
-  .catch(() => {
-    msg.style.color = "#FF6B6B";
-    msg.innerText = "Error al enviar. Inténtalo de nuevo.";
   });
 });
 
 // WHATSAPP
 document.getElementById('whatsappLink').addEventListener('click', function(e){
   e.preventDefault();
-
   const mensaje = `Hola TRIB3 Les Corts 👋  
-Ya entrené con vosotros y he recibido una oferta exclusiva del –30%.
-Me gustaría activarla. 💥`;
-
+He recibido una oferta exclusiva del –30% para volver a entrenar.
+Quiero activarla 💥`;
   window.open("https://wa.me/351914910437?text=" + encodeURIComponent(mensaje), "_blank");
 });
 
-// COUNTDOWN 24H (sin memoria)
+// COUNTDOWN
 let totalSeconds = 24 * 60 * 60;
-
 function updateCountdown() {
   const el = document.getElementById("countdown");
-
   const h = Math.floor(totalSeconds / 3600);
   const m = Math.floor((totalSeconds % 3600) / 60);
   const s = totalSeconds % 60;
-
-  el.innerHTML =
-    String(h).padStart(2, "0") + ":" +
-    String(m).padStart(2, "0") + ":" +
-    String(s).padStart(2, "0");
-
+  el.innerHTML = `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
   if (totalSeconds > 0) totalSeconds--;
 }
-
 setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
