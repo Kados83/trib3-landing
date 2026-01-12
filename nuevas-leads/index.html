@@ -260,7 +260,7 @@ section { padding:70px 20px; }
       <input type="text" name="nombre" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu email" required>
       <input type="tel" name="telefono" placeholder="Tu teléfono" required>
-      <input type="hidden" name="tipo_lead" value="ex-lead-reactivacion">
+      <input type="hidden" name="tipo_lead" value="ex-member-reactivacion">
 
       <button type="submit">ACTIVAR MI –30%</button>
     </form>
@@ -281,11 +281,11 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
 
   const msg = document.getElementById('formMessage');
 
-  fetch("https://script.google.com/macros/s/AKfycby2Z73g8_e4k4Gsqt_PzxTrFcID-eNIbg6lD-DaYmDKtnQhGQlKNkSXbs69NlryRVrM/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzKr7goyLeoBkHUhH502DEFq03wsC-6QJZU0f123enhn1JFwmz2hshbdIIMQHmU1T8h/exec", {
     method:"POST",
     mode:"no-cors",
     headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`nombre=${this.nombre.value}&email=${this.email.value}&telefono=${this.telefono.value}&tipo=ex-lead-reactivacion`
+    body:`nombre=${this.nombre.value}&email=${this.email.value}&telefono=${this.telefono.value}&tipo=ex-member-reactivacion`
   })
   .then(() => {
     msg.style.color = "#00FF7F";
