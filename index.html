@@ -1,295 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-* { box-sizing:border-box; margin:0; padding:0; font-family:'Montserrat',sans-serif; }
-html, body { overflow-x:hidden; }
-body { background:#000; color:#fff; }
-
-/* HERO */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)),
-  url('https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto/zhs91hu6wujla3ceo1s3.jpg');
-  background-size:cover;
-  background-position:center;
-  min-height:80vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-}
-.hero-content { max-width:760px; }
-.hero h1 { font-size:44px; font-weight:800; margin:10px 0; line-height:1.2; }
-.hero h1 span { display:block; color:#e10600; }
-.hero p { font-size:18px; margin-top:15px; }
-
-/* CTA */
-.cta { margin-top:35px; }
-.cta a {
-  background:#e10600;
-  padding:18px 55px;
-  color:#fff;
-  font-weight:800;
-  text-decoration:none;
-  border-radius:50px;
-  font-size:18px;
-  display:inline-block;
-}
-
-/* SECTIONS */
-section { padding:70px 20px; }
-.section-title {
-  text-align:center;
-  font-size:32px;
-  font-weight:800;
-  margin-bottom:30px;
-}
-
-/* FEATURES */
-.features {
-  display:flex;
-  gap:25px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.feature {
-  background:#111;
-  border-radius:14px;
-  overflow:hidden;
-  width:320px;
-  text-align:center;
-}
-.feature img { width:100%; height:210px; object-fit:cover; }
-.feature-content { padding:25px; }
-.feature-content strong {
-  display:block;
-  font-size:20px;
-  color:#e10600;
-  margin-bottom:10px;
-}
-
-/* OFFER */
-.offer {
-  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-  url('https://trib3.co.uk/wp-content/uploads/2023/01/TRIB3_ROZ_-_Studio_Black-500x500.jpg');
-  background-size:cover;
-  background-position:center;
-  text-align:center;
-}
-
-/* FORM */
-.form-box {
-  background:#111;
-  padding:40px;
-  border-radius:16px;
-  max-width:520px;
-  margin:auto;
-}
-.form-box input {
-  width:100%;
-  padding:16px;
-  margin-bottom:15px;
-  border-radius:8px;
-  border:none;
-  font-size:16px;
-}
-.form-box button {
-  width:100%;
-  padding:16px;
-  font-size:18px;
-  font-weight:800;
-  background:#e10600;
-  color:#fff;
-  border:none;
-  border-radius:50px;
-  cursor:pointer;
-}
-#formMessage {
-  margin-top:15px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* WHATSAPP */
-.whatsapp { text-align:center; margin-top:18px; }
-.whatsapp a {
-  color:#25D366;
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero { min-height:60vh; }
-  .hero h1 { font-size:28px; }
-  .hero p { font-size:16px; }
-  .cta a { padding:14px 30px; font-size:16px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vuelve a TRIB3 LesCorts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .hero {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .hero button {
+      background-color: #ff4c3b;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+    .offer {
+      text-align: center;
+      margin: 40px 20px;
+    }
+    .offer p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    .counter {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ff4c3b;
+      margin-bottom: 30px;
+    }
+    .testimonials {
+      background-color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .testimonial {
+      margin-bottom: 30px;
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    .form-section {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .form-section input, 
+    .form-section button {
+      padding: 15px;
+      font-size: 1em;
+      margin: 5px 0;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+    }
+    .form-section input {
+      margin-bottom: 15px;
+    }
+    .form-section button {
+      background-color: #ff4c3b;
+      color: #fff;
+      cursor: pointer;
+    }
+    @media (min-width: 600px) {
+      .hero h1 {
+        font-size: 3em;
+      }
+      .hero p {
+        font-size: 1.4em;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>TRIB3 LESCORTS</h1>
-    <h1><span>ESTA OFERTA ES PARA TI</span></h1>
-    <p>
-      Ya entrenaste con nosotros.<br>
-      Sabemos que te gustó.<br>
-      Ahora queremos que vuelvas… con una ventaja exclusiva.
-    </p>
-    <div class="cta">
-      <a href="#form">ACTIVAR MI DESCUENTO EXCLUSIVO</a>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>¡Te extrañamos en TRIB3 LesCorts!</h1>
+    <p>Sabemos que en 2025 tuviste tus razones, pero en 2026 queremos que vuelvas a disfrutar de tus entrenamientos con nosotros.</p>
+    <button onclick="document.getElementById('signup-form').scrollIntoView({behavior: 'smooth'});">Quiero volver</button>
+  </section>
+
+  <!-- OFERTA Y CONTADOR -->
+  <section class="offer">
+    <p>Aprovecha nuestra oferta exclusiva para antiguos socios:</p>
+    <p>Vuelve ahora y recibe <strong>30% de descuento</strong> en tu membresía.</p>
+    <p><strong>Aprovecha la oferta, expira en:</strong></p>
+    <div class="counter" id="countdown">24h 00m 00s</div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials">
+    <h2>Lo que dicen nuestros socios</h2>
+
+    <div class="testimonial">
+      <p>"Volver a TRIB3 ha sido la mejor decisión. La energía y la comunidad son únicas!"</p>
+      <strong>- Laura, socia</strong>
     </div>
-  </div>
-</div>
 
-<!-- BENEFITS -->
-<section>
-  <div class="section-title">Mucho más que un gimnasio</div>
-  <div class="features">
-    <div class="feature">
-      <img src="https://trib3.co.uk/wp-content/uploads/2023/07/Image44-2-768x1024.jpeg">
-      <div class="feature-content">
-        <strong>Aulas llenas de energía</strong>
-        Entrena en grupo, con coaches que te empujan a dar más.
-      </div>
+    <div class="testimonial">
+      <p>"Las nuevas clases y horarios me hicieron regresar sin pensarlo. ¡Recomendado!"</p>
+      <strong>- Carlos, socio</strong>
     </div>
-    <div class="feature">
-      <img src="https://trib3.co.uk/wp-content/uploads/2022/09/TRIB3-Website-Promo-Workout-BurnCal-1-500x500.jpg">
-      <div class="feature-content">
-        <strong>Entrenamiento HIIT</strong>
-        45 minutos intensos, divididos en 3 zonas.
-      </div>
+
+    <div class="testimonial">
+      <p>"Después de un año fuera, volver fue como reencontrar mi lugar. ¡Me siento motivada de nuevo!"</p>
+      <strong>- Marta, socia que regresó</strong>
     </div>
-    <div class="feature">
-      <img src="https://trib3.co.uk/wp-content/uploads/2023/01/TRIB3-Studio-Gallery-Img-NL-Rozengracht-05-1.jpg">
-      <div class="feature-content">
-        <strong>Estudio premium</strong>
-        Luz, sonido y energía que te atrapan.
-      </div>
+
+    <div class="testimonial">
+      <p>"Regresar a TRIB3 fue lo mejor que pude hacer. La atención y los entrenadores son increíbles."</p>
+      <strong>- Javier, socio que regresó</strong>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- OFFER -->
-<section class="offer">
-  <div class="section-title">
-    <span style="color:#e10600;">–30% de descuento exclusivo</span>
-  </div>
-
-  <p>
-    Oferta privada para personas que ya vivieron la experiencia TRIB3 Les Corts.<br>
-    Condiciones especiales no disponibles al público general.
-  </p>
-
-  <!-- NOVO TEXTO DE URGÊNCIA -->
-  <p style="text-align:center; font-size:20px; font-weight:600; margin-top:20px;">
-    ¡Aprovecha la oferta, expira en:
-  </p>
-
-  <div id="countdown" style="font-size:28px;font-weight:800;color:#e10600;margin-top:10px;">
-    24:00:00
-  </div>
-</section>
-
-<!-- FORM -->
-<section id="form">
-  <div class="section-title">Es ahora o no es</div>
-  <p style="text-align:center;max-width:600px;margin:0 auto 30px;">
-    No lo pienses demasiado.<br>
-    Entrena. Vuelve a sentirlo.<br>
-    Después, el precio vuelve a ser el normal.
-  </p>
-
-  <div class="form-box">
-    <form id="leadForm">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu email" required>
-      <input type="tel" name="telefono" placeholder="Tu teléfono" required>
-      <input type="hidden" name="tipo_lead" value="ex-lead-reactivacion">
-
-      <button type="submit">QUIERO MI –30% EXCLUSIVO</button>
+  <!-- FORMULÁRIO -->
+  <section class="form-section" id="signup-form">
+    <h2>Vuelve a TRIB3 LesCorts hoy</h2>
+    <form>
+      <input type="text" name="name" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="tel" name="phone" placeholder="Teléfono" required>
+      <button type="submit">Quiero volver</button>
     </form>
+  </section>
 
-    <div id="formMessage"></div>
+  <script>
+    // CONTADOR REGRESSIVO DE 24H DINÂMICO
+    const countdownElement = document.getElementById('countdown');
 
-    <div class="whatsapp">
-      ¿Prefieres contacto directo?<br>
-      <a href="#" id="whatsappLink">Hablar por WhatsApp</a>
-    </div>
-  </div>
-</section>
+    // 24 horas em milissegundos
+    let countdownTime = 24 * 60 * 60 * 1000;
 
-<script>
-// FORMULARIO
-document.getElementById('leadForm').addEventListener('submit', function(e){
-  e.preventDefault();
+    function updateCountdown() {
+      if (countdownTime <= 0) {
+        countdownElement.innerHTML = "¡Oferta expirada!";
+        return;
+      }
 
-  const nombre = this.nombre.value.trim();
-  const email = this.email.value.trim();
-  const telefono = this.telefono.value.trim();
-  const tipo = "ex-lead-reactivacion";
-  const msg = document.getElementById('formMessage');
+      const hours = Math.floor((countdownTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((countdownTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((countdownTime % (1000 * 60)) / 1000);
 
-  fetch("https://script.google.com/macros/s/AKfycby2Z73g8_e4k4Gsqt_PzxTrFcID-eNIbg6lD-DaYmDKtnQhGQlKNkSXbs69NlryRVrM/exec", {
-    method:"POST",
-    mode:"no-cors",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:`nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}&telefono=${encodeURIComponent(telefono)}&tipo=${encodeURIComponent(tipo)}`
-  })
-  .then(() => {
-    msg.style.color = "#00FF7F";
-    msg.innerText = "¡Perfecto! Te contactaremos para activar tu descuento.";
-    this.reset();
-  })
-  .catch(() => {
-    msg.style.color = "#FF6B6B";
-    msg.innerText = "Error al enviar. Inténtalo de nuevo.";
-  });
-});
+      countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 
-// WHATSAPP
-document.getElementById('whatsappLink').addEventListener('click', function(e){
-  e.preventDefault();
+      countdownTime -= 1000;
+    }
 
-  const nombre = document.querySelector('[name="nombre"]').value.trim();
-
-  const mensaje = `Hola TRIB3 Les Corts 👋  
-Ya entrené con vosotros y he recibido una oferta exclusiva del –30%.
-Me gustaría activarla. 💥`;
-
-  window.open("https://wa.me/351914910437?text=" + encodeURIComponent(mensaje), "_blank");
-});
-
-// COUNTDOWN 24H SIN MEMORIA
-let totalSeconds = 24 * 60 * 60;
-
-function updateCountdown() {
-  const el = document.getElementById("countdown");
-
-  const h = Math.floor(totalSeconds / 3600);
-  const m = Math.floor((totalSeconds % 3600) / 60);
-  const s = totalSeconds % 60;
-
-  el.innerHTML =
-    String(h).padStart(2, "0") + ":" +
-    String(m).padStart(2, "0") + ":" +
-    String(s).padStart(2, "0");
-
-  if (totalSeconds > 0) totalSeconds--;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 
 </body>
 </html>
